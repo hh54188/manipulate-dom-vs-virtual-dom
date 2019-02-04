@@ -4,7 +4,8 @@ const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/redux.js',
+  // entry: './src/index.js',
   mode: 'development',
   output: {
     filename: "[name].bundle.js",

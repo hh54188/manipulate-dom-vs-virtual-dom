@@ -28,7 +28,9 @@
     "lodash": "^4.17.11",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-refetch": "^2.0.2"
+    "react-redux": "^6.0.0",
+    "react-refetch": "^2.0.2",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js"

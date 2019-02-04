@@ -20,7 +20,7 @@ class App extends React.Component {
     this.state = {
       offsetX: 0,
       offsetY: 0,
-      positions:  [...Array(500).keys()].map(index => randomPosition())
+      positions:  [...Array(1000).keys()].map(index => randomPosition())
     }
     this.startPosition = null
   }
