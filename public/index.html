@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .box {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        position: fixed;
+      }
+
+      html, body {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+    </div>
+    <script>
+      function random(min, max) {
+        return min +  Math.floor(Math.random() * (max - min))
+      }
+
+      function randomPosition() {
+        return {
+          x: random(0, window.innerWidth),
+          y: random(0, window.innerHeight)
+        }
+      }
+      const container = document.querySelector('#app');
+      const styles = []
+      const boxes = [...Array(500).keys()].map(index => {
+        const positon = randomPosition()
+        styles[index] = positon
+        const box = document.createElement('div')
+        box.classList.add('box')
+        box.style.left = positon.x + 'px';
+        box.style.top = positon.y + 'px';
+        return box
+      })
+
+      boxes.forEach(box => {
+        container.appendChild(box)
+      })
+
+      let startPosition = null
+      document.querySelector('body').onmousemove = function (event) {
+        const positionX = event.clientX
+        const positionY = event.clientY
+        if (!startPosition) {
+          startPosition = {
+            positionX,
+            positionY
+          }
+          return
+        }
+
+        boxes.forEach((box, index) => {
+          box.style.left = styles[index].x + (positionX - startPosition.positionX) + 'px',
+          box.style.top = styles[index].y + (positionY - startPosition.positionY) + 'px'
+        })
+      }
+    </script>
+  </body>
+</html>
